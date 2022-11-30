@@ -1,17 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+// import App from './App'
+// import './assets/css/reset.css'
+// import '"./assets/css/style.css"'
+///descobrir como usar styled components
+import "./index.css"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+  <>
+  <div className='screen'>
+    <div className='logo'>
+    <img src="./assets/img/logo.png" alt="ZapRecall"/> ZapRecall
+    </div>
+    <div className='questions'>
+    <div className='question'>Pergunta 1</div>
+    </div>
+    
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  </div>
+  <footer>Concluídas 0/4</footer>
+  </>
+)
+
