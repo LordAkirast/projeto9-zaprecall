@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Footer from './Footer'
 
 function Questions() {
     const [clicado, setclicado] = useState(1)
@@ -14,14 +15,21 @@ function Questions() {
         height: "23px"
     };
 
-    return (
+    const [qtd, setqtd] = useState(0)
 
+    return (
         <>
-            <Question number="Pergunta 1" setaStyle={setaStyle} classCorrect="correct" classAlmost="almost" classWrong="wrong" classQ="question" classA="answer" question="O que significa 'emia'?" answer="'emia' significa Presente no Sangue." />
-            <Question number="Pergunta 2" setaStyle={setaStyle} classCorrect="correct" classAlmost="almost" classWrong="wrong" classQ="question" classA="answer" question="Qual é a música da vida?" answer="Silence, Brother." />
-            <Question number="Pergunta 3" setaStyle={setaStyle} classCorrect="correct" classAlmost="almost" classWrong="wrong" classQ="question" classA="answer" question="Um pêssego pode derrotar Tai Lung?" answer="Talvez possa, se você estiver disposto a treiná-lo." />
-            <Question number="Pergunta 4" setaStyle={setaStyle} classCorrect="correct" classAlmost="almost" classWrong="wrong" classQ="question" classA="answer" question="Quais são as formas de detectar um sonho lúcido?" answer="Olhar para as mãos. Espelhos. Teste de Realidade." />
+            <div className='questions'>
+                <>
+                    <Question number="Pergunta 1" setaStyle={setaStyle} classCorrect="correct" classAlmost="almost" classWrong="wrong" classQ="question" classA="answer" question="O que significa 'emia'?" answer="'emia' significa Presente no Sangue." />
+                    <Question number="Pergunta 2" setaStyle={setaStyle} classCorrect="correct" classAlmost="almost" classWrong="wrong" classQ="question" classA="answer" question="Qual é a música da vida?" answer="Silence, Brother." />
+                    <Question number="Pergunta 3" setaStyle={setaStyle} classCorrect="correct" classAlmost="almost" classWrong="wrong" classQ="question" classA="answer" question="Um pêssego pode derrotar Tai Lung?" answer="Talvez possa, se você estiver disposto a treiná-lo." />
+                    <Question number="Pergunta 4" setaStyle={setaStyle} classCorrect="correct" classAlmost="almost" classWrong="wrong" classQ="question" classA="answer" question="Quais são as formas de detectar um sonho lúcido?" answer="Olhar para as mãos. Espelhos. Teste de Realidade." />
+                </>
+            </div>
+            <Footer qtd={qtd}/>
         </>
+
     )
 }
 
@@ -30,19 +38,19 @@ function Question(props) {
 
     if (clicado === 0) {
         return (
-            <div className={props.classQ} onClick={() => setclicado(1) & console.log(clicado)}>{props.number} <img style={props.setaStyle} src="./assets/img/seta_play.png" alt="Play" /></div>
+            <div data-test="flashcard" className={props.classQ} >{props.number} <img onClick={() => setclicado(1)} data-test="play-btn" style={props.setaStyle} src="./assets/img/seta_play.png" alt="Play" /></div>
 
         )
     } else if (clicado === 1) {
         return (
 
-            <div className={props.classA} >{props.question} <img onClick={() => setclicado(2)} style={props.setaStyle} src="./assets/img/seta_virar.png" alt="Virar" /> </div>
+            <div className={props.classA} >{props.question} <img data-test="turn-btn" onClick={() => setclicado(2)} style={props.setaStyle} src="./assets/img/seta_virar.png" alt="Virar" /> </div>
         )
     } else if (clicado === 2) {
         return (
             <>
 
-                <div className={props.classA} >{props.answer} <button className='dontRemember' onClick={() => setclicado(3)}>Não lembrei</button> <button onClick={() => setclicado(4)} className='almostRemember'>Quase Não lembrei</button> <button  onClick={() => setclicado(5)} className='Remember'>Zap</button>
+                <div className={props.classA} >{props.answer} <button data-test="no-icon" className='dontRemember' onClick={() => setclicado(3)}>Não lembrei</button> <button data-test="partial-icon" onClick={() => setclicado(4)} className='almostRemember'>Quase Não lembrei</button> <button data-test="zap-icon" onClick={() => setclicado(5)} className='Remember'>Zap</button>
 
                 </div>
             </>

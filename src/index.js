@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom/client'
 import "./index.css"
 import { useState } from 'react'
 import Questions from './Questions'
+import Footer from './Footer'
 
 
 
@@ -32,7 +33,7 @@ root.render(
     
 
   </div>
-  <footer>Concluídas 0/4</footer>
+  
   </>
 )
 
