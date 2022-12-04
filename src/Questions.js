@@ -38,19 +38,19 @@ function Question(props) {
 
     if (clicado === 0) {
         return (
-            <div data-test="flashcard" className={props.classQ} >{props.number} <img onClick={() => setclicado(1)} data-test="play-btn" style={props.setaStyle} src="./assets/img/seta_play.png" alt="Play" /></div>
+            <div data-test="flashcard" className={props.classQ} ><p data-test="flashcard-text">{props.number}</p> <img onClick={() => setclicado(1)} data-test="play-btn" style={props.setaStyle} src="./assets/img/seta_play.png" alt="Play" /></div>
 
         )
     } else if (clicado === 1) {
         return (
 
-            <div className={props.classA} >{props.question} <img data-test="turn-btn" onClick={() => setclicado(2)} style={props.setaStyle} src="./assets/img/seta_virar.png" alt="Virar" /> </div>
+            <div className={props.classA} ><p data-test="flashcard-text">{props.question}</p> <img data-test="turn-btn" onClick={() => setclicado(2)} style={props.setaStyle} src="./assets/img/seta_virar.png" alt="Virar" /> </div>
         )
     } else if (clicado === 2) {
         return (
             <>
 
-                <div className={props.classA} >{props.answer} <button data-test="no-icon" className='dontRemember' onClick={() => setclicado(3)}>Não lembrei</button> <button data-test="partial-icon" onClick={() => setclicado(4)} className='almostRemember'>Quase Não lembrei</button> <button data-test="zap-icon" onClick={() => setclicado(5)} className='Remember'>Zap</button>
+                <div className={props.classA} ><p data-test="flashcard-text">{props.answer}</p> <button data-test="no-icon" className='dontRemember' onClick={() => setclicado(3)}>Não lembrei</button> <button data-test="partial-icon" onClick={() => setclicado(4)} className='almostRemember'>Quase Não lembrei</button> <button data-test="zap-icon" onClick={() => setclicado(5)} className='Remember'>Zap</button>
 
                 </div>
             </>
