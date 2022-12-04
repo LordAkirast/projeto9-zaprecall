@@ -17,6 +17,8 @@ function Questions() {
 
     const [qtd, setqtd] = useState(0)
 
+    
+
     return (
         <>
             <div className='questions'>
@@ -35,6 +37,7 @@ function Questions() {
 
 function Question(props) {
     const [clicado, setclicado] = useState(0)
+    
 
     if (clicado === 0) {
         return (
@@ -45,7 +48,7 @@ function Question(props) {
         return (
 
             <div className={props.classA} ><p data-test="flashcard-text">{props.question}</p> <img data-test="turn-btn" onClick={() => setclicado(2)} style={props.setaStyle} src="./assets/img/seta_virar.png" alt="Virar" /> </div>
-        )
+            )
     } else if (clicado === 2) {
         return (
             <>
@@ -81,6 +84,7 @@ function Question(props) {
         )
 
     }
+
 }
 
 
